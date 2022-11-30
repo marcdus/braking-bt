@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'brake_pressure_control_node = pressure_ctrl.pressure_control:main'
         ],
     },
 )

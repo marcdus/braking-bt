@@ -1,0 +1,3 @@
+scipy
+numpy
+simple_pid

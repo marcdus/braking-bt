@@ -3,8 +3,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 from simple_pid import PID
 
-x_set = 2
-pid = PID(2, 1, 2.5, setpoint = x_set)
+# x_set = 2
+# pid = PID(70, 1, 2.5, setpoint = x_set)
+
+params = {
+    "tunings": (1, 1, 1),
+    "setpoint": 4,
+    "output_limits": (0, 1000),
+    "pid_on": True,
+    "prop_on_measurement": False,
+}
+
+pid = PID()
+pid.tunings = params["tunings"]
+pid.setpoint = params["setpoint"]
+pid.output_limits = params["output_limits"]
+pid.auto_mode = params["pid_on"]
+pid.proportional_on_measurement = params["prop_on_measurement"]
 
 
 # Model Parameters
@@ -49,3 +64,5 @@ plt.ylabel('x(t)')
 plt.grid()
 plt.legend(["x1", "x2"])
 plt.show()
+
+print(pid.tunings)
