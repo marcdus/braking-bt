@@ -7,7 +7,7 @@ from simple_pid import PID
 # pid = PID(70, 1, 2.5, setpoint = x_set)
 
 params = {
-    "tunings": (1, 1, 1),
+    "tunings": (1, 0, 0),
     "setpoint": 4,
     "output_limits": (0, 1000),
     "pid_on": True,
@@ -51,7 +51,6 @@ for k in range(N+1):
     x1[k+1] = a11 * x1[k] + a12 * x2[k] + b1 * F # position
     x2[k+1] = a21 * x1[k] + a22 * x2[k] + b2 * F # velocity
     F = pid(x1[k+1], Ts)
-
 
 # Plot the Simulation Results
 t = np.arange(Tstart,Tstop+2*Ts,Ts)

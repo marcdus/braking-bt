@@ -34,11 +34,11 @@ class LiveSosFilter(LiveFilter):
 
 import csv
 
-with open("pressure.csv", encoding='utf-8-sig') as file_name:
+with open("examples/pressure.csv", encoding='utf-8-sig') as file_name:
     data = np.array(list(csv.reader(file_name)), dtype=float)
 
 
-sos = scipy.signal.iirfilter(1, Wn=3, fs=20, btype="low",
+sos = scipy.signal.iirfilter(1.0, Wn=2.0, fs=20, btype="low",
                             ftype="butter", output="sos")
 live_sosfilter = LiveSosFilter(sos)
 y_live_sosfit = [live_sosfilter(y) for y in data]
